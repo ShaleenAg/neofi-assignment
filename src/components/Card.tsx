@@ -6,6 +6,243 @@ import useWebSocket from 'react-use-websocket';
 import sampleData from './sampleData'
 
 const useStyles = createUseStyles({
+    cardBodyContainer: {
+        width: 470,
+        height: 560,
+        background: `url('/card.png')`,
+        padding: [58, 50],
+        display: 'flex',
+        justifyContent: 'center',
+        fontSize: 14,
+        color: '#DCDCEC',
+
+    },
+    cardBody: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 30,
+    },
+    cardContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        lineHeight: 1.5
+
+    },
+    coinSymbol: {
+        width: 70,
+        height: 70,
+        background: '#1C1731',
+        borderRadius: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        '& img': {
+            borderRadius: '50%',
+            width: 50,
+            height: 50
+        },
+        left: '42.5%',
+        top: -23
+    },
+    valueContainer: {
+        fontSize: 14,
+        lineHeight: 1.5,
+        display: 'flex',
+        justifyContent: 'space-between',
+        color: '#C5C5C5',
+        alignItems: 'center'
+    },
+    value: {
+        fontWeight: 600,
+        color: '#627EEA',
+        fontSize: 24,
+
+    },
+    coinSelectContainer: {
+        background: "#1C1731",
+        width: 390,
+        height: 60,
+        borderRadius: 10,
+        '& img': {
+            height: 25,
+            width: 25, borderRadius: '50%',
+        },
+        fontSize: 16,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: [0, 20]
+    },
+    coin: {
+        display: 'flex',
+        gap: 5,
+        fontSize: 16,
+    },
+    amountToInvestContainer: {
+
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+    },
+    amount: {
+        width: 390,
+        height: 60,
+        border: '1px solid rgba(110, 86, 248, 0.25)',
+        borderRadius: 5,
+        padding: [0, 20],
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+
+    },
+    amountInput: {
+        height: 50,
+        background: 'none',
+        border: 'none',
+        fontSize: 22,
+        lineHeight: '122%',
+        fontWeight: 600,
+        color: '#6F6F7E',
+        outline: 'none',
+        appearance: 'none',
+        '&::-webkit-outer-spin-button,&::-webkit-inner-spin-button': {
+            appearance: "none"
+        }
+
+    },
+    currency: {
+        height: 24,
+        width: 25,
+        background: '#000',
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 16
+    },
+    estimateCoinContainer: {
+        display: 'flex',
+        flexDirection: 'column', gap: 10,
+
+    },
+    estimate: {
+        background: "#1C1731",
+        width: 390,
+        height: 60,
+        borderRadius: 10,
+        padding: [0, 20],
+        fontSize: 22,
+        lineHeight: '122%',
+        fontWeight: 600,
+        color: '#6F6F7E',
+        display: 'flex', alignItems: 'center'
+    },
+    button: {
+        width: 389,
+        height: 50,
+        background: "linear-gradient(94.37deg, #3387D5 -5.94%, #7A06C9 115.34%)",
+        borderRadius: 30,
+        fontSize: 20,
+        fontWeight: 600,
+        color: '#fff',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    modalContainer: {
+        height: 460,
+        width: 460,
+        borderRadius: 18,
+        backgroundClip: 'padding-box',
+        border: '1px solid transparent',
+        position: 'relative',
+        boxSizing: 'border-box',
+        background: 'linear-gradient(0deg, #181627, #181627), linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)',
+        // borderImageSour,ce,: 'linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)'
+        '&:before': {
+            content: '',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: -1,
+            margin: -1,
+            borderRadius: 'inherit',
+            background: 'linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)'
+        },
+        padding: [50, 20],
+
+    },
+    closeButton: {
+        position: 'absolute',
+        right: 10,
+        top: 10,
+        width: 24, height: 24, background: 'rgba(110, 86, 248, 0.15)', borderRadius: 5,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontWeight: 700,
+        fontSize: 16
+    }, modalBody: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 20,
+        alignItems: 'center'
+    },
+    searchBar: {
+        border: "1px solid rgba(110, 86, 248, 0.25)",
+        height: 40,
+        width: 320, borderRadius: 30, display: 'flex', gap: 10, alignItems: 'center', padding: [0, 20]
+    },
+    modalInput: {
+        background: 'none',
+        border: 'none',
+        fontSize: 14,
+        lineHeight: '136%',
+        fontWeight: 400,
+        color: '#D2D2D2 !important',
+        outline: 'none',
+        appearance: 'none',
+        '&::-webkit-outer-spin-button,&::-webkit-inner-spin-button': {
+            appearance: "none"
+        },
+    },
+    coinList: {
+        display: 'flex', flexDirection: 'column', gap: 20, overflowY: 'scroll', maxHeight: 300,
+        width: 320,
+        padding: [0, 20],
+    },
+    coinItemContainer: {
+        fontSize: 14,
+        borderRadius: 10,
+        color: '#fff',
+        padding: [0, 10],
+        display: 'flex',
+        justifyContent: 'space-between',
+        cursor: 'pointer'
+
+    },
+    coinItemSelected: {
+        background: '#1B192D',
+        height: 50,
+        padding: [10, 10],
+        borderRadius: 5,
+
+
+    },
+    coinItem: {
+        display: 'flex',
+        gap: 5,
+        '& img': {
+            height: 24, width: 24, borderRadius: '50%'
+        }, alignItems: 'center'
+    },
+    ///////////////////
+    ///////////////////////
+    ///////////////////////
+    ///////////////////////////
+    //////////////////////////
     '@media (min-width: 700px)': {
         cardBodyContainer: {
             width: 470,
@@ -240,238 +477,12 @@ const useStyles = createUseStyles({
             }, alignItems: 'center'
         }
     },
-    cardBodyContainer: {
-        width: 470,
-        height: 560,
-        background: `url('/card.png')`,
-        padding: [58, 50],
-        display: 'flex',
-        justifyContent: 'center',
-        fontSize: 14,
-        color: '#DCDCEC',
-
-    },
-    cardBody: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 30,
-    },
-    cardContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
-        lineHeight: 1.5
-
-    },
-    coinSymbol: {
-        width: 70,
-        height: 70,
-        background: '#1C1731',
-        borderRadius: '50%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'absolute',
-        '& img': {
-            borderRadius: '50%',
-            width: 50,
-            height: 50
-        },
-        left: '42.5%',
-        top: -23
-    },
-    valueContainer: {
-        fontSize: 14,
-        lineHeight: 1.5,
-        display: 'flex',
-        justifyContent: 'space-between',
-        color: '#C5C5C5',
-        alignItems: 'center'
-    },
-    value: {
-        fontWeight: 600,
-        color: '#627EEA',
-        fontSize: 24,
-
-    },
-    coinSelectContainer: {
-        background: "#1C1731",
-        width: 390,
-        height: 60,
-        borderRadius: 10,
-        '& img': {
-            height: 25,
-            width: 25, borderRadius: '50%',
-        },
-        fontSize: 16,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: [0, 20]
-    },
-    coin: {
-        display: 'flex',
-        gap: 5,
-        fontSize: 16,
-    },
-    amountToInvestContainer: {
-
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 10,
-    },
-    amount: {
-        width: 390,
-        height: 60,
-        border: '1px solid rgba(110, 86, 248, 0.25)',
-        borderRadius: 5,
-        padding: [0, 20],
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-
-    },
-    amountInput: {
-        height: 50,
-        background: 'none',
-        border: 'none',
-        fontSize: 22,
-        lineHeight: '122%',
-        fontWeight: 600,
-        color: '#6F6F7E',
-        outline: 'none',
-        appearance: 'none',
-        '&::-webkit-outer-spin-button,&::-webkit-inner-spin-button': {
-            appearance: "none"
-        }
-
-    },
-    currency: {
-        height: 24,
-        width: 25,
-        background: '#000',
-        color: '#fff',
-        textAlign: 'center',
-        fontSize: 16
-    },
-    estimateCoinContainer: {
-        display: 'flex',
-        flexDirection: 'column', gap: 10,
-
-    },
-    estimate: {
-        background: "#1C1731",
-        width: 390,
-        height: 60,
-        borderRadius: 10,
-        padding: [0, 20],
-        fontSize: 22,
-        lineHeight: '122%',
-        fontWeight: 600,
-        color: '#6F6F7E',
-        display: 'flex', alignItems: 'center'
-    },
-    button: {
-        width: 389,
-        height: 50,
-        background: "linear-gradient(94.37deg, #3387D5 -5.94%, #7A06C9 115.34%)",
-        borderRadius: 30,
-        fontSize: 20,
-        fontWeight: 600,
-        color: '#fff',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    modalContainer: {
-        height: 460,
-        width: 460,
-        borderRadius: 18,
-        backgroundClip: 'padding-box',
-        border: '1px solid transparent',
-        position: 'relative',
-        boxSizing: 'border-box',
-        background: 'linear-gradient(0deg, #181627, #181627), linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)',
-        // borderImageSour,ce,: 'linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)'
-        '&:before': {
-            content: '',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: -1,
-            margin: -1,
-            borderRadius: 'inherit',
-            background: 'linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)'
-        },
-        padding: [50, 20],
-
-    },
-    closeButton: {
-        position: 'absolute',
-        right: 10,
-        top: 10,
-        width: 24, height: 24, background: 'rgba(110, 86, 248, 0.15)', borderRadius: 5,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontWeight: 700,
-        fontSize: 16
-    }, modalBody: {
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 20,
-        alignItems: 'center'
-    },
-    searchBar: {
-        border: "1px solid rgba(110, 86, 248, 0.25)",
-        height: 40,
-        width: 320, borderRadius: 30, display: 'flex', gap: 10, alignItems: 'center', padding: [0, 20]
-    },
-    modalInput: {
-        background: 'none',
-        border: 'none',
-        fontSize: 14,
-        lineHeight: '136%',
-        fontWeight: 400,
-        color: '#D2D2D2 !important',
-        outline: 'none',
-        appearance: 'none',
-        '&::-webkit-outer-spin-button,&::-webkit-inner-spin-button': {
-            appearance: "none"
-        },
-    },
-    coinList: {
-        display: 'flex', flexDirection: 'column', gap: 20, overflowY: 'scroll', maxHeight: 300,
-        width: 320,
-        padding: [0, 20],
-    },
-    coinItemContainer: {
-        fontSize: 14,
-        borderRadius: 10,
-        color: '#fff',
-        padding: [0, 10],
-        display: 'flex',
-        justifyContent: 'space-between',
-        cursor: 'pointer'
-
-    },
-    coinItemSelected: {
-        background: '#1B192D',
-        height: 50,
-        padding: [10, 10],
-        borderRadius: 5,
-
-
-    },
-    coinItem: {
-        display: 'flex',
-        gap: 5,
-        '& img': {
-            height: 24, width: 24, borderRadius: '50%'
-        }, alignItems: 'center'
-    }
+    /////////////////////
+    ////////////////////////////
+    //////////////////////////////
+    ////////////////////////////////
+    //////////////////////////////////
+   
 })
 
 interface ICoin {
