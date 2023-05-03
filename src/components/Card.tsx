@@ -7,20 +7,24 @@ import sampleData from './sampleData'
 
 const useStyles = createUseStyles({
     cardBodyContainer: {
-        width: 470,
-        height: 560,
+        width: 300,
+        height: 460,
         background: `url('/card.png')`,
-        padding: [58, 50],
+        padding: [28, 20],
         display: 'flex',
         justifyContent: 'center',
-        fontSize: 14,
+        fontSize: 12,
         color: '#DCDCEC',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat'
+
 
     },
     cardBody: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 30,
+        gap: 20,
+        alignItems: 'center'
     },
     cardContainer: {
         display: 'flex',
@@ -30,8 +34,8 @@ const useStyles = createUseStyles({
 
     },
     coinSymbol: {
-        width: 70,
-        height: 70,
+        width: 45,
+        height: 45,
         background: '#1C1731',
         borderRadius: '50%',
         display: 'flex',
@@ -40,11 +44,11 @@ const useStyles = createUseStyles({
         position: 'absolute',
         '& img': {
             borderRadius: '50%',
-            width: 50,
-            height: 50
+            width: 40,
+            height: 40
         },
         left: '42.5%',
-        top: -23
+        top: -17
     },
     valueContainer: {
         fontSize: 14,
@@ -52,18 +56,19 @@ const useStyles = createUseStyles({
         display: 'flex',
         justifyContent: 'space-between',
         color: '#C5C5C5',
-        alignItems: 'center'
+        alignItems: 'center',
+        maxWidth: '300px', gap: 30
     },
     value: {
         fontWeight: 600,
         color: '#627EEA',
-        fontSize: 24,
+        fontSize: 18,
 
     },
     coinSelectContainer: {
         background: "#1C1731",
-        width: 390,
-        height: 60,
+        width: 290,
+        height: 40,
         borderRadius: 10,
         '& img': {
             height: 25,
@@ -85,10 +90,11 @@ const useStyles = createUseStyles({
         display: 'flex',
         flexDirection: 'column',
         gap: 10,
+        maxWidth: 290
     },
     amount: {
-        width: 390,
-        height: 60,
+        width: 290,
+        height: 40,
         border: '1px solid rgba(110, 86, 248, 0.25)',
         borderRadius: 5,
         padding: [0, 20],
@@ -101,7 +107,7 @@ const useStyles = createUseStyles({
         height: 50,
         background: 'none',
         border: 'none',
-        fontSize: 22,
+        fontSize: 18,
         lineHeight: '122%',
         fontWeight: 600,
         color: '#6F6F7E',
@@ -109,7 +115,8 @@ const useStyles = createUseStyles({
         appearance: 'none',
         '&::-webkit-outer-spin-button,&::-webkit-inner-spin-button': {
             appearance: "none"
-        }
+        },
+        maxWidth: 200
 
     },
     currency: {
@@ -118,7 +125,7 @@ const useStyles = createUseStyles({
         background: '#000',
         color: '#fff',
         textAlign: 'center',
-        fontSize: 16
+        fontSize: 14
     },
     estimateCoinContainer: {
         display: 'flex',
@@ -127,19 +134,19 @@ const useStyles = createUseStyles({
     },
     estimate: {
         background: "#1C1731",
-        width: 390,
-        height: 60,
+        width: 290,
+        height: 40,
         borderRadius: 10,
         padding: [0, 20],
-        fontSize: 22,
+        fontSize: 18,
         lineHeight: '122%',
         fontWeight: 600,
         color: '#6F6F7E',
         display: 'flex', alignItems: 'center'
     },
     button: {
-        width: 389,
-        height: 50,
+        width: 289,
+        height: 40,
         background: "linear-gradient(94.37deg, #3387D5 -5.94%, #7A06C9 115.34%)",
         borderRadius: 30,
         fontSize: 20,
@@ -150,8 +157,8 @@ const useStyles = createUseStyles({
         alignItems: 'center'
     },
     modalContainer: {
-        height: 460,
-        width: 460,
+        height: 300,
+        width: 260,
         borderRadius: 18,
         backgroundClip: 'padding-box',
         border: '1px solid transparent',
@@ -171,7 +178,7 @@ const useStyles = createUseStyles({
             borderRadius: 'inherit',
             background: 'linear-gradient(180deg, #3B79D4 -12.45%, rgba(0, 0, 0, 0) 38.78%)'
         },
-        padding: [50, 20],
+        padding: [50, 10],
 
     },
     closeButton: {
@@ -193,7 +200,7 @@ const useStyles = createUseStyles({
     searchBar: {
         border: "1px solid rgba(110, 86, 248, 0.25)",
         height: 40,
-        width: 320, borderRadius: 30, display: 'flex', gap: 10, alignItems: 'center', padding: [0, 20]
+        width: 220, borderRadius: 30, display: 'flex', gap: 10, alignItems: 'center', padding: [0, 20]
     },
     modalInput: {
         background: 'none',
@@ -209,9 +216,9 @@ const useStyles = createUseStyles({
         },
     },
     coinList: {
-        display: 'flex', flexDirection: 'column', gap: 20, overflowY: 'scroll', maxHeight: 300,
-        width: 320,
-        padding: [0, 20],
+        display: 'flex', flexDirection: 'column', gap: 20, overflowY: 'scroll', maxHeight: 150,
+        width: 220,
+        padding: [0, 10],
     },
     coinItemContainer: {
         fontSize: 14,
@@ -259,6 +266,7 @@ const useStyles = createUseStyles({
             display: 'flex',
             flexDirection: 'column',
             gap: 30,
+            alignItems: 'normal'
         },
         cardContainer: {
             display: 'flex',
@@ -290,7 +298,8 @@ const useStyles = createUseStyles({
             display: 'flex',
             justifyContent: 'space-between',
             color: '#C5C5C5',
-            alignItems: 'center'
+            alignItems: 'center',
+            maxWidth: 'none'
         },
         value: {
             fontWeight: 600,
@@ -323,6 +332,8 @@ const useStyles = createUseStyles({
             display: 'flex',
             flexDirection: 'column',
             gap: 10,
+            maxWidth: 'none'
+
         },
         amount: {
             width: 390,
@@ -347,7 +358,8 @@ const useStyles = createUseStyles({
             appearance: 'none',
             '&::-webkit-outer-spin-button,&::-webkit-inner-spin-button': {
                 appearance: "none"
-            }
+            },
+            maxWidth: 'none'
 
         },
         currency: {
@@ -482,7 +494,7 @@ const useStyles = createUseStyles({
     //////////////////////////////
     ////////////////////////////////
     //////////////////////////////////
-   
+
 })
 
 interface ICoin {
