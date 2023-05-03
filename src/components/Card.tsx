@@ -6,7 +6,7 @@ import useWebSocket from 'react-use-websocket';
 import sampleData from './sampleData'
 
 const useStyles = createUseStyles({
-    '@media (min-width: 400px)': {
+    '@media (min-width: 700px)': {
         cardBodyContainer: {
             width: 470,
             height: 560,
