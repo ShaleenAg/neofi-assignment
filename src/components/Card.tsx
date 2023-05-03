@@ -541,6 +541,7 @@ const Card = () => {
     }, [sendJsonMessage, currency])
 
     useEffect(() => {
+    
         handleSubscription()
     }, [currency, handleSubscription])
 
@@ -618,6 +619,7 @@ const Card = () => {
                                             <div className={clsx(classes.coinItemContainer, {
                                                 [classes.coinItemSelected]: coin.symbol === currency.symbol
                                             })} key={coin.symbol} onClick={() => {
+                                                cleanSubscription()
                                                 setCurrency(coin)
                                                 setShowModal(false)
                                             }}>
